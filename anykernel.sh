@@ -7,7 +7,7 @@ properties() { '
 kernel.string=LineageOS KernelSU-Next kernel for the LG V30 by Jacoa
 do.devicecheck=0
 do.modules=0
-do.systemless=1
+do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0
 '; } # end properties
@@ -20,3 +20,8 @@ RAMDISK_COMPRESSION=auto;
 . tools/ak3-core.sh;
 split_boot;
 flash_boot;
+
+cp 98-kernel.sh /system/addon.d/98-kernel.sh | true
+chmod 755 /system/addon.d/98-kernel.sh | true
+cp 98-kernel.sh /system/system/addon.d/98-kernel.sh | true
+chmod 755 /system/system/addon.d/98-kernel.sh | true
